@@ -1,0 +1,136 @@
+<!-- aside -->
+<div id="aside" class="app-aside modal nav-dropdown">
+    <!-- app-aside box-shadow-z3 modal fade lg nav-expand -->
+    <!-- fluid app aside -->
+    <div class="left navside dark dk" data-layout="column">
+        <div class="navbar no-radius">
+            <!-- brand -->
+            <a class="navbar-brand">
+                <img src="assets/images/logo_vimes.gif">
+                <span class="hidden-folded inline" style="font-size: 18px;">IoT Digital Twins</span>
+            </a>
+            <!-- / brand -->
+        </div>
+        <div flex class="hide-scroll">
+            <nav class="scroll nav-active-primary">
+
+                <ul class="nav" ui-nav>
+                    <li class="nav-header hidden-folded">
+                        <small class="text-muted">Thông tin chính</small>
+                    </li>
+                    <li>
+                        <a href="/">
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe055;
+                                    <!-- kí hiệu của phần Dashboard -->
+                                    <span ui-include="'assets/images/i_0.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Điều khiển hệ thống</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tramTQ">
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe335;
+                                    <!-- kí hiệu của phần Dashboard -->
+                                    <span ui-include="'assets/images/i_0.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Theo dõi bản sao số hệ thống</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/CSDL">
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe431;
+                                    <!-- kí hiệu của phần Dashboard -->
+                                    <span ui-include="'assets/images/i_0.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Cơ sở dữ liệu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/dashBoard">
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe871;
+                                    <!-- kí hiệu của phần Dashboard -->
+                                    <span ui-include="'assets/images/i_0.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Phân tích dữ liệu</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-header hidden-folded">
+                        <small class="text-muted">Hệ thống con</small>
+                    </li>
+                    
+                    <li>
+                        <a href="/tram1">
+                            <span class="nav-label">
+                                <b class="label label-sm accent">1</b>
+                            </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe30a;
+                                    <span ui-include="'assets/images/i_3.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Trạm 1</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tram2">
+                            <span class="nav-label">
+                                <b class="label label-sm accent">2</b>
+                            </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe30a;
+                                    <span ui-include="'assets/images/i_3.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Trạm 2</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tram3">
+                            <span class="nav-label">
+                                <b class="label label-sm accent">3</b>
+                            </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe30a;
+                                    <span ui-include="'assets/images/i_3.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Trạm 3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tram4">
+                            <span class="nav-label">
+                                <b class="label label-sm accent">3</b>
+                            </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe30a;
+                                    <span ui-include="'assets/images/i_3.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">Trạm 4</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-header hidden-folded">
+                        <small class="text-muted">Hướng dẫn</small>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div flex-no-shrink>
+            <form action="/logout?_method=DELETE" method="POST">
+                <div ui-include="'../views/blocks/aside.bottom.0.html'"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- / -->

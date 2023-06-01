@@ -1,0 +1,148 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <div class="box">
+            <div class="box-header">
+                <h3>A</h3>
+                <small>Your data status</small>
+            </div>
+            <div class="box-tool">
+                <ul class="nav">
+                    <li class="nav-item inline">
+                        <a class="nav-link">
+                            <i class="material-icons md-18">&#xe863;</i>
+                        </a>
+                    </li>
+                    <li class="nav-item inline dropdown">
+                        <a class="nav-link" data-toggle="dropdown">
+                            <i class="material-icons md-18">&#xe5d4;</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-scale pull-right">
+                            <a class="dropdown-item" href>Trong tuần</a>
+                            <a class="dropdown-item" href>Trong tháng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Hiện tại</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-body">
+                <div ui-jp="chart" ui-options=" {
+                              tooltip : {
+                                  trigger: 'axis'
+                              },
+                              legend: {
+                                  data:['Nhiệt độ dầu']
+                              },
+                              calculable : true,
+                              xAxis : [
+                                  {
+                                      type : 'category',
+                                      boundaryGap : false,
+                                      data : ['Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7','Chủ nhật']
+                                  }
+                              ],
+                              yAxis : [
+                                  {
+                                      type : 'value',
+                                      axisLabel : {
+                                          formatter: '{value} °C'
+                                      }
+                                  }
+                              ],
+                              series : [
+                                  {
+                                      name:'Nhiệt độ dầu',
+                                      type:'line',
+                                      data:[21, 21, 25, 23, 22, 18, 23],
+                                      markPoint : {
+                                          data : [
+                                              {type : 'max', name: 'Lớn nhất'},
+                                              {type : 'min', name: 'Nhỏ nhất'}
+                                          ]
+                                      },
+                                      markLine : {
+                                          data : [
+                                              {type : 'average', name: 'Trung bình'}
+                                          ]
+                                      }
+                                  }
+                              ]
+                            }" style="height:300px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <div class="box">
+            <div class="box-header">
+                <h3>Stats</h3>
+                <small>Your data status</small>
+            </div>
+            <div class="box-tool">
+                <ul class="nav">
+                    <li class="nav-item inline">
+                        <a class="nav-link">
+                            <i class="material-icons md-18">&#xe863;</i>
+                        </a>
+                    </li>
+                    <li class="nav-item inline dropdown">
+                        <a class="nav-link" data-toggle="dropdown">
+                            <i class="material-icons md-18">&#xe5d4;</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-scale pull-right">
+                            <a class="dropdown-item" href>Trong tuần</a>
+                            <a class="dropdown-item" href>Trong tháng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Hiện tại</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-body">
+                <div ui-jp="chart" ui-options=" {
+                        tooltip : {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data:['Nhiệt độ dầu']
+                        },
+                        calculable : true,
+                        xAxis : [
+                            {
+                                type : 'category',
+                                boundaryGap : false,
+                                data : ['Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7','Chủ nhật']
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value',
+                                axisLabel : {
+                                    formatter: '{value} °C'
+                                }
+                            }
+                        ],
+                        series : [
+                            {
+                                name:'Nhiệt độ dầu',
+                                type:'line',
+                                data:[21, 21, 25, 23, 22, 18, 23],
+                                markPoint : {
+                                    data : [
+                                        {type : 'max', name: 'Lớn nhất'},
+                                        {type : 'min', name: 'Nhỏ nhất'}
+                                    ]
+                                },
+                                markLine : {
+                                    data : [
+                                        {type : 'average', name: 'Trung bình'}
+                                    ]
+                                }
+                            }
+                        ]
+                      }" style="height:300px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

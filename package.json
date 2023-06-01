@@ -1,0 +1,32 @@
+{
+  "name": "plc_web",
+  "version": "1.0.0",
+  "description": "npm init\r npm i express ejs\r npm i --save-dev nodemon dotenv\r npm i bcrypt // tạo mã băm để so sánh mật khẩu, tạo an toàn\r npm i passport passport-local express-session express-flash // để lưu trữ và duy trì người dùng trên các render khác nhau\r //express-flash hiện thị những vấn đề như email sai, password sai,..\r npm i method-override // ghi đè phương thức đang sử dụng (dùng ở đoạn delete)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "jquery": "^3.6.1",
+    "kepserverex-js": "^1.0.6",
+    "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
+    "mqtt": "^4.3.7",
+    "mysql": "^2.16.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}

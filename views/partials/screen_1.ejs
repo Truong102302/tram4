@@ -1,0 +1,94 @@
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+    <%- include('./navbar_footer'); %>
+        <div ui-view class="app-body" id="view">
+
+            <!-- ############ PAGE START-->
+            <div class="padding">
+                <div class="row column-reverse">
+                    <div class="col-md-12 col-xl-6">
+                        <div class="box">
+                            <div class="box-header text-center">
+                                <h2 style="font-size: 29px;">Trạm 1 : Trạm Cấp Phôi</h2>
+                                <!-- <small>Calculated in last 7 days</small> -->
+                            </div>
+                            <div class="b-t">
+                                <div class="row box-body">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="Tram1_row">
+                                            (2B2) CB Xy Lanh Thu
+                                            <span class="dot" id="_2B2"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (2B1) CB Xy Lanh Đẩy
+                                            <span class="dot" id="_2B1"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (2B3) CB Áp Suất
+                                            <span class="dot" id="_2B3"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (2B5) CB Vị Trí Nhả Phôi
+                                            <span class="dot" id="_2B5"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (2B4) CB Vị Trí Hút Phôi
+                                            <span class="dot" id="_2B4"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (2B6) CB Báo Có Phôi
+                                            <span class="dot" id="_2B6"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (2B8) CB Báo Phôi Ngược
+                                            <span class="dot" id="_2B8"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (2B7) CB Yêu Cầu Cấp Phôi
+                                            <span class="dot" id="_2B7"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 dker">
+                                        <div class="Tram1_row">
+                                            (3PV1) Hành trình nhả phôi
+                                            <span class="dot" id="_3PV1"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (3PV2) Hành trình hút phôi
+                                            <span class="dot" id="_3PV2"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (3PV3) Hút phôi
+                                            <span class="dot" id="_3PV3"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (3PV4) XL cấp phôi đẩy
+                                            <span class="dot" id="_3PV4"></span>
+                                        </div>
+                                        <div class="Tram1_row">
+                                            (3PV5) XL cấp phôi thu
+                                            <span class="dot" id="_3PV5"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xl-6">
+                        <div class="box">
+                            <div id="_3dTram1_HW">
+                                <canvas class="_3dTram1"></canvas>
+                            </div>
+                            <div>
+                                <button id="ban_dau" class="btn btn-outline b-info text-info">Góc ban đầu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ############ PAGE END-->
+
+        </div>
+</div>
+<!-- / -->

@@ -1,0 +1,305 @@
+
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+.button_style_ĐK {
+    padding: 10px 20px;
+    margin: 5px;
+    height: 42px;
+    background-color: #808080;
+    color: #fff;
+    font-size: 16px;
+    /* font-weight: bolder; */
+    justify-content: center;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-family: system-ui;
+    text-align: center;
+}
+
+#start,
+#stop {
+    width: 108px;
+    padding-bottom: 15px;
+}
+
+#reset {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+.container_ĐK {
+    box-shadow: 0 8px 16px 0 gray, 0 6px 20px 0 gray;
+    background-color: rgb(68, 68, 68);
+    border-radius: 10px;
+    border: 3px solid gray;
+    opacity: 0.7;
+}
+
+.container_button_ĐK {
+    justify-content: center;
+    display: grid;
+    margin: 5px;
+    gap: 10px;
+    /* cach dong */
+    padding: 10px;
+}
+
+.header {
+    text-align: center;
+    padding-top: 1px;
+    border-bottom: 3.3px solid black;
+    color: rgb(231, 231, 231);
+}
+
+.button_style_ĐK:hover {
+    background-color: #9ba39b;
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button_style_ĐK:active {
+    /* background-color: #e1eae2; */
+    box-shadow: 0 1px #666;
+    transform: translateY(2px);
+}
+#trangthai {
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    font-family: system-ui;
+    margin-block: 19px;
+    font-weight: bolder;
+}
+
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+.container_TTT {
+    background-color: rgb(68, 68, 68);
+    /* width: 650px; */
+    /* height: 310px; */
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 39px;
+    /* border: 2px solid rgb(39, 179, 11); */
+    box-shadow: 0 8px 16px 0 rgba(5, 170, 247, 0.2), 0 6px 20px 0 rgba(2, 183, 255, 0.19);
+    /* position: absolute;
+    top: 360px;
+    left: 120px; */
+}
+
+.button_style_TTT {
+    padding: 10px 20px;
+    margin: 5px;
+    height: 50px;
+    width: 150px;
+    background-color: #808080;
+    color: #fff;
+    font-size: 16px;
+    /* font-weight: bolder; */
+    justify-content: center;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-family: system-ui;
+    text-align: center;
+    border-left: 12px solid #d8183e;
+}
+
+.container_button_TTT {
+    justify-content: center;
+    display: grid;
+    margin: 5px;
+    row-gap: 13px;
+    column-gap: 50px;
+    /* cach dong */
+    padding: 10px;
+    grid-template-areas:
+        'tram01 tram04 tram03'
+        'tram02 tram05 tram06'
+        'tram07 tram09 tram10';
+}
+
+.tram01 {
+    grid-area: tram01
+}
+
+.tram02 {
+    grid-area: tram02
+}
+
+.tram03 {
+    grid-area: tram03
+}
+
+.tram04 {
+    grid-area: tram04
+}
+
+.tram05 {
+    grid-area: tram05
+}
+
+.tram06 {
+    grid-area: tram06
+}
+
+.tram07 {
+    grid-area: tram07
+}
+
+.tram09 {
+    grid-area: tram09
+}
+
+.tram10 {
+    grid-area: tram10
+}
+
+/* button {
+    box-shadow: 0 5px #999;
+} */
+/* #trangthai {
+    justify-content: center;
+    text-align: center;
+    color: #6a6d72;
+} */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+.container_CĐ {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(5, 170, 247, 0.2), 0 6px 20px 0 rgba(2, 183, 255, 0.19);
+}
+
+.container_button_CĐ {
+    width: 220px;
+    margin: 5px auto;
+    /* padding-block: 10px; */
+    /*vertical padding */
+    /* padding-inline: 20px;horizontal padding */
+    position: relative;
+    border-radius: 30px;
+    background: #fff
+}
+
+.toggle-btn_CĐ {
+    padding: 19px 28px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 15px;
+    color: rgb(36, 36, 36);
+}
+#Mau_Auto {
+    /* font-size: 23px; */
+    /* padding: 18px 10px; */
+    font-weight: bolder;
+    outline: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+#btn_CĐ {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: #e67e22;
+    border-radius: 30px;
+    transition: 0s;
+}
+
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* mobile */
+@media (max-width: 739px) {
+    /* #start,
+    #stop {
+        width: 88px;
+        padding-bottom: 15px;
+    } */
+    .container_button_TTT {
+    margin: 5px;
+    row-gap: 3px;
+    column-gap: 5px;
+    padding: 0px;
+    grid-template-areas:
+        'tram01 tram06'
+        'tram02 tram07'
+        'tram03 tram09'
+        'tram04 tram10' 
+        'tram05 .';
+    }
+    .button_style_TTT {
+        padding: 10px 20px;
+        margin: 5px;
+        height: 39px;
+        width: 120px;
+        font-size: 13px;
+    }
+    .column-reverse {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    #Screen_Main {
+        margin-left: 73px;
+    }
+}
+
+/* tablet */
+@media (min-width: 740px) and (max-width: 1239px) {
+    /* #start,
+    #stop {
+        width: 88px;
+        padding-bottom: 15px;
+    } */
+    .container_button_TTT {
+        row-gap: 3px;
+        column-gap: 5px;
+    }
+    .column-reverse {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+.border_bottom {
+    border-bottom: 3.3px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

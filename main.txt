@@ -1,0 +1,57 @@
+            <p>Đây là màn chính</p>
+            <!-- Nút nhấn sửa/lưu - Lưu ý: Nút nhấn lưu phải nằm trước nút nhấn sửa-->
+            <button id="btt_Main_Save" onclick="fn_Main_SaveBtt('btt_Main_Save','btt_Main_Edit')">LƯU</button>
+            <button id="btt_Main_Edit" onclick="fn_Main_EditBtt('btt_Main_Save','btt_Main_Edit')">SỬA</button> 
+            <!-- Nút nhấn chạy động cơ -->
+            <button id="btt_RUNMOTOR1" onclick="socket.emit('Client-send-cmdM1', true);">RUN MOTOR 1</button>
+            <!-- gửi bức điện có tên "Client-send-cmdM1" lên Server (gửi qua index.js) với giá trị "true" (chạy động cơ)__________socket.on("Client-send-cmdM1", index.js-->
+            <!-- Nút nhấn dừng động cơ -->
+            <button id="btt_STOP_M1" onclick="socket.emit('Client-send-cmdM1', false);">STOP MOTOR 1</button>
+            <br /><br />
+            <!--Tag dạng Bool-->
+            <label>Tag dạng bool:</label>
+            <input id="tbx_Main_Bool" disabled="disabled" type="text" />
+            <script>fn_Main_IOField_IO("tag_Bool", "tbx_Main_Bool", 0)</script>
+            <br /><br />
+            <!--Tag dạng Số nguyên-->
+            <label>Tag dạng số nguyên:</label>
+            <input id="tbx_Main_Integer" disabled="disabled" type="text" />
+            <script>fn_Main_IOField_IO("tag_Integer", "tbx_Main_Integer", 0)</script>
+            <br /><br />
+            <!--Tag dạng Số thực-->
+            <label>Tag dạng số thực:</label>
+            <input id="tbx_Main_Real" disabled="disabled" type="text" />
+            <script>fn_Main_IOField_IO("tag_Real", "tbx_Main_Real", 2)</script>
+            <!-- lấy 2 số sau dấu phẩy -->
+            <br /><br />
+
+
+
+                    <!-- //////////////Code cho màn hình 1////////////// -->
+        <div id="Screen_1">
+            <!--REALTIME TREND-->
+            <div id="Chart_1">
+                <script>
+                    var data_trend = 0;
+                    socket.on("tag_Real", function (data) {
+                        data_trend = data;
+                    });
+                    Plotly.newPlot('Chart_1', [{
+                        y: [data_trend],
+                        type: 'line'
+                    }]);
+                    var cnt = 0;
+                    setInterval(function () {
+                        Plotly.extendTraces('Chart_1', { y: [[data_trend]] }, [0]);
+                        cnt++;
+                        if (cnt > 300) {
+                            Plotly.relayout('Chart_1', {
+                                xaxis: {
+                                    range: [cnt - 300, cnt]
+                                }
+                            });
+                        }
+                    }, 1000);
+                </script>
+            </div>
+        </div>

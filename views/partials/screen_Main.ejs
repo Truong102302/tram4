@@ -1,0 +1,92 @@
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+    <%- include('./navbar_footer'); %>
+        <div ui-view class="app-body" id="view">
+
+            <!-- ############ PAGE START-->
+            <div class="padding">
+                <div class="row">
+                    <div class="col-md-1 col-sm-0">
+                    </div>
+                    <div style="margin: auto;">
+                        <div class="box container_CĐ">
+                            <div class="box-header text-center border_bottom">
+                                <div style="font-size: 29px;" id="Mau_Auto">Chế độ hoạt động: Maunual</div>
+                            </div>
+                            <div class="box-body">
+                                <div class="container_button_CĐ">
+                                    <!-- div btn khoảng màu di chuyển giữa hai button -->
+                                    <div id="btn_CĐ"></div>
+                                    <button type="button" class="toggle-btn_CĐ" onclick="leftClick()">Maunual</button>
+                                    <button type="button" class="toggle-btn_CĐ" onclick="rightClick()">Auto</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin: auto;">
+                        <div class="box container_ĐK">
+                            <div class="box-header text-center border_bottom" id="Mau_Auto">
+                                <div style="font-size: 29px;">Điều khiển Auto</div>
+                            </div>
+                            <div class="box-tool">
+                                <ul class="nav">
+                                    <li class="nav-item inline">
+                                        <a class="nav-link">
+                                            <i class="material-icons md-18">&#xe863;</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="box-body">
+                                <div class="container_button_ĐK">
+                                    <button disabled class="button_style_ĐK" id="start">Start</button>
+                                    <button disabled class="button_style_ĐK" id="stop">Stop</button>
+                                    <button disabled class="button_style_ĐK" id="reset">Reset</button>
+                                </div>
+                                <div id="trangthai">
+                                    <p>Not Running</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 col-md-2 col-sm-1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="margin: auto;">
+                        <div class="box">
+                            <div class="box-header text-center border_bottom" id="Mau_Auto">
+                                <div style="font-size: 29px;">Trạng thái các trạm</div>
+                            </div>
+                            <div class="box-tool">
+                                <ul class="nav">
+                                    <li class="nav-item inline">
+                                        <a class="nav-link">
+                                            <i class="material-icons md-18">&#xe863;</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="box-body">
+                                <div class="container_button_TTT">
+                                    <button class="button_style_TTT" id="tram01">Trạm 01</button>
+                                    <button class="button_style_TTT" id="tram02">Trạm 02</button>
+                                    <button class="button_style_TTT" id="tram03">Trạm 03</button>
+                                    <button class="button_style_TTT" id="tram04">Trạm 04</button>
+                                    <button class="button_style_TTT" id="tram05">Trạm 05</button>
+                                    <button class="button_style_TTT" id="tram06">Trạm 06</button>
+                                    <button class="button_style_TTT" id="tram07">Trạm 07+08</button>
+                                    <button class="button_style_TTT" id="tram09">Trạm 09</button>
+                                    <button class="button_style_TTT" id="tram10">Trạm 10</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ############ PAGE END-->
+
+        </div>
+</div>
+<!-- / -->

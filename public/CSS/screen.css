@@ -1,0 +1,45 @@
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* mobile */
+@media (max-width: 739px) {
+    .column-reverse {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+/* tablet */
+@media (min-width: 740px) and (max-width: 1239px) {
+    .column-reverse {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+}
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////// */
+
+.Tram1_row {
+    /* width: 330px; */
+    height: 44px;
+    background-color: rgb(158, 158, 158);
+    margin: 6px;
+    border-radius: 10px;
+    padding-inline: 10px;
+    padding-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #d8183e;
+    /* background-color: greenyellow; */
+    border-radius: 50%;
+    display: inline-block;
+    border: 1.9px solid black;
+}

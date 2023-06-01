@@ -1,0 +1,282 @@
+<div class="row">
+    <div class="col-md-12 col-xl-4">
+        <div class="box">
+            <div class="box-header">
+                <h3>Hệ thống</h3>
+                <small>Calculated in last 7 days</small>
+            </div>
+            <div class="box-tool">
+                <ul class="nav">
+                    <li class="nav-item inline">
+                        <a class="nav-link">
+                            <i class="material-icons md-18">&#xe863;</i>
+                        </a>
+                    </li>
+                    <li class="nav-item inline dropdown">
+                        <a class="nav-link" data-toggle="dropdown">
+                            <i class="material-icons md-18">&#xe5d4;</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-scale pull-right">
+                            <a class="dropdown-item" href>Trong tuần</a>
+                            <a class="dropdown-item" href>Trong tháng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Hiện tại</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-center b-t">
+                <div class="row-col">
+                    <div class="row-cell p-a">
+                        <div class="inline m-b">
+                            <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color"
+                                data-redraw='true' data-percent="65" ui-options="{
+                                                lineWidth: 15,
+                                                trackColor: 'rgba(0,0,0,0.05)',
+                                                barColor: '#0cc2aa',
+                                                scaleColor: 'transparent',
+                                                size: 100,
+                                                scaleLength: 0,
+                                                animate:{
+                                                    duration: 3000,
+                                                    enabled:true
+                                                }
+                                                }" id="easyPieChart_1">
+                                <div>
+                                    <h5 id="easyPieChart_1_h5">55%</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            Finished
+                            <small class="block m-b">320</small>
+                            <a class="btn btn-sm white rounded">Cài đặt đạt mức</a>
+                        </div>
+                    </div>
+                    <div class="row-cell p-a dker">
+                        <div class="inline m-b">
+                            <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color"
+                                data-redraw='true' data-percent="45" ui-options="{
+                                                lineWidth: 15,
+                                                trackColor: 'rgba(0,0,0,0.05)',
+                                                barColor: '#fcc100',
+                                                scaleColor: 'transparent',
+                                                size: 100,
+                                                scaleLength: 0,
+                                                animate:{
+                                                    duration: 3000,
+                                                    enabled:true
+                                                }
+                                                }">
+                                <div>
+                                    <h5>45%</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            Remaining
+                            <small class="block m-b">205</small>
+                            <a class="btn btn-sm white rounded">Cài đặt đạt mức</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <div class="box">
+            <div class="box-header">
+                <h3>Năng lượng/tổng</h3>
+                <small>Calculated in last 30 days</small>
+            </div>
+            <div class="box-tool">
+                <ul class="nav">
+                    <li class="nav-item inline">
+                        <a class="nav-link">
+                            <i class="material-icons md-18">&#xe863;</i>
+                        </a>
+                    </li>
+                    <li class="nav-item inline dropdown">
+                        <a class="nav-link" data-toggle="dropdown">
+                            <i class="material-icons md-18">&#xe5d4;</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-scale pull-right">
+                            <a class="dropdown-item" href>Trong tuần</a>
+                            <a class="dropdown-item" href>Trong tháng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Hiện tại</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-body">
+                <div ui-jp="chart" ui-options=" {
+                                tooltip : {
+                                    formatter: '{a} <br/>{b} : {c}%'
+                                },
+                                series : [
+                                    {
+                                        name:'Năng lượng',
+                                        type:'gauge',
+                                        radius : '100%',
+                                        title : {
+                                            textStyle: {
+                                                fontWeight: 'bolder',
+                                                fontSize: 14,
+                                                fontStyle: 'italic'
+                                            }
+                                        },
+                                        detail : {formatter:'{value}%'},
+                                        data:[{value: 10, name: 'Năng lượng'}],
+                                        axisTick: {
+                                            length :20,
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                            width: 16
+                                            }
+                                        }
+                                    }
+                                ]
+                                }" style="height:200px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <div class="box">
+            <div class="box-header">
+                <h3>Bình dầu</h3>
+                <small>Hiển thị thông tin mức dầu, lưu lượng bơm dầu</small>
+            </div>
+            <div class="box-tool">
+                <ul class="nav">
+                    <li class="nav-item inline">
+                        <a class="nav-link">
+                            <i class="material-icons md-18">&#xe863;</i>
+                        </a>
+                    </li>
+                    <li class="nav-item inline dropdown">
+                        <a class="nav-link" data-toggle="dropdown">
+                            <i class="material-icons md-18">&#xe5d4;</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-scale pull-right">
+                            <a class="dropdown-item" href>Trong tuần</a>
+                            <a class="dropdown-item" href>Trong tháng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Hiện tại</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-body">
+                <div ui-jp="chart" ui-options="{
+                                tooltip : {
+                                    formatter: '{a} <br/>{c} {b}'
+                                },
+                                series : [
+                                    {
+                                        name:'dầu',
+                                        type:'gauge',
+                                        center : ['50%', '50%'],
+                                        radius : '80%',
+                                        min:0,
+                                        max:2,
+                                        startAngle:135,
+                                        endAngle:45,
+                                        splitNumber:2,
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: [[0.2, '#ff4500'],[0.8, '#48b'],[1, '#228b22']],
+                                                width: 13
+                                            }
+                                        },
+                                        axisTick: {
+                                            splitNumber:5,
+                                            length :19,
+                                            lineStyle: {
+                                                color: 'auto'
+                                            }
+                                        },
+                                        axisLabel: {
+                                            formatter:function(v){
+                                                switch (v + '') {
+                                                    case '0' : return 'E';
+                                                    case '1' : return '';
+                                                    case '2' : return 'F';
+                                                }
+                                            }
+                                        },
+                                        splitLine: {
+                                            length :15,
+                                            lineStyle: {
+                                                color: 'auto'
+                                            }
+                                        },
+                                        pointer: {
+                                            width:5
+                                        },
+                                        title : {
+                                                textStyle: {
+                                                fontWeight: 'bolder',
+                                                fontSize: 14,
+                                                fontStyle: 'italic'
+                                                }
+                                        },
+                                        detail : {
+                                            show: false
+                                        },
+                                        data:[{value: 0.5, name: 'dầu'}]
+                                    },
+                                    {
+                                        name:'Water',
+                                        type:'gauge',
+                                        center : ['50%', '50%'],
+                                        radius : '90%',
+                                        min:0,
+                                        max:2,
+                                        startAngle:315,
+                                        endAngle:225,
+                                        splitNumber:2,
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: [[0.2, '#ff4500'],[0.8, '#48b'],[1, '#228b22']],
+                                                width: 10
+                                            }
+                                        },
+                                        axisTick: {
+                                            show: false
+                                        },
+                                        axisLabel: {
+                                            formatter:function(v){
+                                                switch (v + '') {
+                                                    case '0' : return 'H';
+                                                    case '1' : return 'Water';
+                                                    case '2' : return 'C';
+                                                }
+                                            }
+                                        },
+                                        splitLine: {
+                                            length :15,
+                                            lineStyle: {
+                                                color: 'auto'
+                                            }
+                                        },
+                                        pointer: {
+                                            width:3
+                                        },
+                                        title : {
+                                            show: false
+                                        },
+                                        detail : {
+                                            show: false
+                                        },
+                                        data:[{value: 0.5, name: 'gas'}]
+                                    }
+                                ]
+                            }" style="height:200px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

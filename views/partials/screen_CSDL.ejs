@@ -1,0 +1,117 @@
+<!-- content -->
+<div id="content" class="app-content box-shadow-z0" role="main">
+    <%- include('./navbar_footer'); %>
+        <div ui-view class="app-body" id="view">
+
+            <!-- ############ PAGE START-->
+            <div class="padding">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <h6>Thời gian từ : </h6>
+                        <div class="form-group">
+                            <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                                    defaultDate: 'now',
+                                    icons: {
+                                      time: 'fa fa-clock-o',
+                                      date: 'fa fa-calendar',
+                                      up: 'fa fa-chevron-up',
+                                      down: 'fa fa-chevron-down',
+                                      previous: 'fa fa-chevron-left',
+                                      next: 'fa fa-chevron-right',
+                                      today: 'fa fa-screenshot',
+                                      clear: 'fa fa-trash',
+                                      close: 'fa fa-remove'
+                                    }
+                                  }">
+                                <input type='text' class="form-control" id="dtpk_Search_Start"/>
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    
+                        <h6>đến :</h6>
+                        <div class="form-group">
+                            <div class='input-group date' ui-jp="datetimepicker" ui-options="{
+                                    defaultDate: 'now',
+                                    icons: {
+                                      time: 'fa fa-clock-o',
+                                      date: 'fa fa-calendar',
+                                      up: 'fa fa-chevron-up',
+                                      down: 'fa fa-chevron-down',
+                                      previous: 'fa fa-chevron-left',
+                                      next: 'fa fa-chevron-right',
+                                      today: 'fa fa-screenshot',
+                                      clear: 'fa fa-trash',
+                                      close: 'fa fa-remove'
+                                    }
+                                  }">
+                                <input type='text' class="form-control" id="dtpk_Search_End"/>
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xl-12">
+                        <div class="box">
+                            <!--Nút tìm kiếm-->
+                            <button id="btt_Search" class="buttonCSDL_btt_Search" onclick="myFunction_btt_Search()">
+                                <i class="button__text"> Tìm kiếm </i>
+                            </button>
+                            <button id="btt_Refresh" class="buttonCSDL" onclick="myFunction_btt_Refresh()">
+                                <i class="button__text">Tất cả các mục</i>
+                            </button>
+                            <button type="button" class="buttonCSDL" id="buttonReload"
+                                onclick="reConnect_mySQL();buttonReload();console.log('Reset')">
+                                <i class="button__text">Đặt lại</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h2>Dữ liệu hoạt động của hệ thống</h2>
+                            </div>
+                            <div class="table-responsive">
+                                <table ui-jp="dataTable" class="table table-striped b-t b-b" id="table_01">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:8%">ID</th>
+                                            <th style="width:39%">Tên phần tử</th>
+                                            <th style="width:10%">Trạng thái</th>
+                                            <th style="width:30%">Thời gian</th>
+                                            <th style="width:13%">Chất lượng tín hiệu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ############ PAGE END-->
+
+        </div>
+</div>
+<script>
+    function myFunction_btt_Search() {
+            document.getElementById("btt_Search").classList.add("button--loading");
+            fn_SQL_By_Time();
+        }
+    function myFunction_btt_Refresh() {
+            document.getElementById("btt_Refresh").classList.add("button--loading");
+            fn_Table01_SQL_Show(); 
+            console.log('done')
+        }
+    const btn = document.getElementById("buttonReload");
+    function buttonReload() {
+        btn.classList.add("button--loading");
+    }
+</script>
+<!-- / -->
+
+

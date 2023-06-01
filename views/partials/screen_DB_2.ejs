@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="box">
+            <div class="box-header">
+                <h3>Stats</h3>
+                <small>Your data status</small>
+            </div>
+            <div class="box-tool">
+                <ul class="nav">
+                    <li class="nav-item inline">
+                        <a class="nav-link">
+                            <i class="material-icons md-18">&#xe863;</i>
+                        </a>
+                    </li>
+                    <li class="nav-item inline dropdown">
+                        <a class="nav-link" data-toggle="dropdown">
+                            <i class="material-icons md-18">&#xe5d4;</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-scale pull-right">
+                            <a class="dropdown-item" href>Trong tuần</a>
+                            <a class="dropdown-item" href>Trong tháng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Hiện tại</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-body">
+                <div ui-jp="chart" ui-options=" {
+                      tooltip : {
+                          trigger: 'axis'
+                      },
+                      legend: {
+                          data:['Lượng phôi lỗi','Lượng phôi đạt']
+                      },
+                      calculable : true,
+                      xAxis : [
+                          {
+                              type : 'category',
+                              data : ['T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12']
+                          }
+                      ],
+                      yAxis : [
+                          {
+                              type : 'value'
+                          }
+                      ],
+                      series : [
+                          {
+                              name:'Lượng phôi lỗi',
+                              type:'bar',
+                              data:[36, 56, 17, 23, 25, 16, 35, 12, 12, 20, 16, 13],
+                              markPoint : {
+                                  data : [
+                                      {type : 'max', name: 'Lớn nhất',symbolSize:12},
+                                      {type : 'min', name: 'Nhỏ nhất',symbolSize:12}
+                                  ]
+                              },
+                              markLine : {
+                                  data : [
+                                      {type : 'average', name: 'Trung bình'}
+                                  ]
+                              }
+                          },
+                          {
+                              name:'Lượng phôi đạt',
+                              type:'bar',
+                              data:[120, 168, 190, 126, 128, 170, 188, 199, 148, 118, 116, 192],
+                              markPoint : {
+                                  data : [
+                                      {type : 'max', name: 'Lớn nhất',symbolSize:12},
+                                      {type : 'min', name: 'Nhỏ nhất',symbolSize:12}
+                                  ]
+                              },
+                              markLine : {
+                                  data : [
+                                      {type : 'average', name : 'Trung bình'}
+                                  ]
+                              }
+                          }
+                      ]
+                    }" style="height:360px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
