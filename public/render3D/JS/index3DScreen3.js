@@ -259,8 +259,8 @@ async function init() {
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////
     ])
-    // const axesHelper = new THREE.AxesHelper( 5 );
-    // scene.add( axesHelper ); // thêm vào màn hình
+     const axesHelper = new THREE.AxesHelper( 5 );
+     scene.add( axesHelper ); // thêm vào màn hình
     animate();
 }
 function animate() {

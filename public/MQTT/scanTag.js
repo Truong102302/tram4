@@ -47,7 +47,7 @@ function fn_container_Start(data){
         // socket.emit('publish', { 'topic': topicPub, 'payload': `[{"id":"TCP_IP_tram.tram1.btt_Start","v":false}]` })
         socket.emit('publish', { 'topic': topicPub, 'payload': payload_start_false })
 
-
+        
     }
 }
 // kiểm tra stop
@@ -104,10 +104,12 @@ function scan_Tram_Start_Reset(payload_parse, id1, id2 , idStyleTag){
 }
 ////////////////////////////////////////////////
 function scanDot(payload_parse, id, idStyleTag) {
+    
     // tìm kiểm id trong chuỗi Json
     var myInfo = payload_parse.values.find(function (user) {
         return user.id === id;
     });
+    console.log("payload",myInfo.v )
     if(myInfo.v == true){
         document.getElementById(idStyleTag).style.backgroundColor = '#1ab773'; //xanh
         return true
@@ -115,6 +117,14 @@ function scanDot(payload_parse, id, idStyleTag) {
         document.getElementById(idStyleTag).style.backgroundColor = '#d8183e'; //đỏ
         return false
     }
+}
+function Number_phoi(payload_parse, id, idStyleTag)
+{
+    var myInfo = payload_parse.values.find(function (user) {
+        return user.id === id;
+    });
+    // number = parseInt(myInfo.v);
+    document.getElementById(idStyleTag).value = myInfo.v
 }
 ////////////////////////////////////////////////
 function scanMQTT_3D(payload_parse, id) {

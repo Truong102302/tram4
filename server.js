@@ -84,6 +84,9 @@ app.get('/tram3', checkAuthenticated, (req, res) => {
 app.get('/tram4', checkAuthenticated, (req, res) => {
   res.render('tram4.ejs', { name: req.user.name })
 })
+app.get('/tram5', checkAuthenticated, (req, res) => {
+  res.render('tram5.ejs', { name: req.user.name })
+})
 /////////////////////////////////////////////////////////////////////////////
 app.get('/CSDL', checkAuthenticated, (req, res) => {
   res.render('CSDL.ejs', { name: req.user.name })
@@ -216,11 +219,15 @@ client.on('message', function (topic, payload) {
 });
 ////////////////////////////////////////////////////////////////////////
 // thiết lập các bản tin client và server trao đổi khi muốn server public hoặc subscribe
-io.sockets.on('connection', function (sock) {
+// io.socket bao quất tất cả kết nối của sever, socket đc viết sẵn trong thư viện 
+io.sockets.on('connection', function (sock) {// sock: là một đối tượng biểu diễn kết nối giữa broker và server web
+  // phương thức on(): thành lập kết nối 
   // New connection, listen for...
+  // biến sock của hàm callback lấy dữ liệu từ kết nối với broker trả về
   console.log("New connection from " + sock.id)  //sock.id
   // ...subscribe messages
-  sock.on('subscribe', function (msg) {
+  sock.on('subscribe', function (msg) {// sock sử dụng phương thức on để nhận yếu cầu từ  client
+    // console.log("Message recive",msg) //Message recive { topic: 'iotgateway' }
     console.log("Asked to subscribe to " + msg.topic)
     if (msg.topic !== undefined) {
       sock.join(msg.topic)
@@ -246,6 +253,7 @@ io.sockets.on('connection', function (sock) {
 
   // ...publish messages
   sock.on('publish', function (msg) {
+    // console.log(msg)
     console.log("socket published [" + msg.topic + "] >>" + msg.payload + "<<")
     client.publish(msg.topic, msg.payload)
   })
@@ -270,11 +278,11 @@ io.sockets.on('connection', function (sock) {
 
 })
 
-///////////////////////////////MQTT/////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
+// ///////////////////////////////MQTT/////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
 
 
 
@@ -284,127 +292,131 @@ io.sockets.on('connection', function (sock) {
 
 
 
-// Khai báo SQL
-var mysql = require('mysql');
-var sqlcon
+// // Khai báo SQL
+// var mysql = require('mysql');
+// var sqlcon
 
-// var tableName = "PLC_thuc"
-var tableName = process.env.tableName
+// // var tableName = "PLC_thuc"
+// var tableName = process.env.tableName
 
-function handleDisconnect() {
-  sqlcon = mysql.createConnection({
-    host: process.env.host_SQL,
-    user: process.env.user_SQL,
-    password: process.env.password_SQL,
-    database: process.env.database_SQL,
-    dateStrings: true
-  }) // Recreate the connection, since
-  // the old one cannot be reused.
-  sqlcon.connect(function (err) {              // The server is either down
-    if (err) {                                     // or restarting (takes a while sometimes).
-      console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
-    }                                     // to avoid a hot loop, and to allow our node script to
-    console.log("Connected DB!");
-  });                                     // process asynchronous requests in the meantime.
-  // If you're also serving http, display a 503 error.
-  sqlcon.on('error', function (err) {
-    console.log('db error', err);
-    if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-      handleDisconnect();                         // lost due to either server restart, or a
-    } else {                                      // connnection idle timeout (the wait_timeout
-      throw err;                                  // server variable configures this)
-    }
-  });
-  sqlcon.on('end', function () {
-    console.log('end My SQL server connection');
-  });
-}
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-handleDisconnect();
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
+// function handleDisconnect() {
+//   sqlcon = mysql.createConnection({
+//     host: process.env.host_SQL,
+//     user: process.env.user_SQL,
+//     password: process.env.password_SQL,
+//     database: process.env.database_SQL,
+//     dateStrings: true
+//   }) // Recreate the connection, since
+//   // the old one cannot be reused.
+//   sqlcon.connect(function (err) {              // The server is either down
+//     if (err) {                                     // or restarting (takes a while sometimes).
+//       console.log('error when connecting to db:', err);
+//       setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+//     }                                     // to avoid a hot loop, and to allow our node script to
+//     console.log("Connected DB!");
+//   });                                     // process asynchronous requests in the meantime.
+//   // If you're also serving http, display a 503 error.
+//   sqlcon.on('error', function (err) {
+//     console.log('db error', err);
+//     if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+//       handleDisconnect();                         // lost due to either server restart, or a
+//     } else {                                      // connnection idle timeout (the wait_timeout
+//       throw err;                                  // server variable configures this)
+//     }
+//   });
+//   sqlcon.on('end', function () {
+//     console.log('end My SQL server connection');
+//   });
+// }
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// handleDisconnect();
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
 
 
-// reload dữ liệu
-io.on("connection", function (socket) {
-  socket.on("reConnect_mySQL", function (data) {
-    sqlcon.end()
-    handleDisconnect();
-    console.log("hi reconnect DB!")
-    socket.emit('reConnect_mySQL_toClient', "true");
-  });
-});
+// // reload dữ liệu
+// //io.on : lắng nghe xem có ai kết nối lên k, có người kết nối chạy connection
+// io.on("connection", function (socket) {
+//   socket.on("reConnect_mySQL", function (data) {
+//     sqlcon.end()
+//     handleDisconnect();
+//     console.log("hi reconnect DB!")
+//     socket.emit('reConnect_mySQL_toClient', "true");
+//   });
+// });
 
-// Đọc dữ liệu từ SQL
-io.on("connection", function (socket) {
-  socket.on("msg_SQL_Show", function (data) {
-    var sqltable_Name = tableName;
-    var query = "SELECT * FROM " + sqltable_Name + ";"
-    sqlcon.query(query, function (err, results, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        const objectifyRawPacket = row => ({ ...row });
-        const convertedResponse = results.map(objectifyRawPacket);
-        socket.emit('SQL_Show', convertedResponse);
-      }
-    });
-  });
-});
+// // Đọc dữ liệu từ SQL
+// io.on("connection", function (socket) {
+//   socket.on("msg_SQL_Show", function (data) {
+//     var sqltable_Name = tableName;
+//     var query = "SELECT * FROM " + sqltable_Name + ";"
+//     sqlcon.query(query, function (err, results, fields) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         const objectifyRawPacket = row => ({ ...row });
+//         const convertedResponse = results.map(objectifyRawPacket);
+//         socket.emit('SQL_Show', convertedResponse);
+//       }
+//     });
+//   });
+// });
 
-// Tìm kiếm dữ liệu SQL theo khoảng thời gian
-io.on("connection", function (socket) {
-  socket.on("msg_SQL_ByTime", function (data) {
-    var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset time Việt Nam (GMT7+)
-    // var tzoffset = (new Date()).getTimezoneOffset() * 0; //offset time Việt Nam (GMT7+)
+// // Tìm kiếm dữ liệu SQL theo khoảng thời gian
+// io.on("connection", function (socket) {
+//   socket.on("msg_SQL_ByTime", function (data) {
+//     var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset time Việt Nam (GMT7+)
+//     // var tzoffset = (new Date()).getTimezoneOffset() * 0; //offset time Việt Nam (GMT7+)
 
-    // Lấy thời gian tìm kiếm từ date time piker
-    var timeS = new Date(data[0]); // Thời gian bắt đầu
-    var timeE = new Date(data[1]); // Thời gian kết thúc
-    // Quy đổi thời gian ra định dạng cua MySQL
-    var timeS1 = "'" + (new Date(timeS - tzoffset)).toISOString().slice(0, -1).replace("T", " ") + "'";
-    var timeE1 = "'" + (new Date(timeE - tzoffset)).toISOString().slice(0, -1).replace("T", " ") + "'";
-    var timeR = timeS1 + "AND" + timeE1; // Khoảng thời gian tìm kiếm (Time Range)
-    var sqltable_Name = tableName; // Tên bảng
-    var dt_col_Name = "_TIMESTAMP";  // Tên cột thời gian
+//     // Lấy thời gian tìm kiếm từ date time piker
+//     var timeS = new Date(data[0]); // Thời gian bắt đầu
+//     var timeE = new Date(data[1]); // Thời gian kết thúc
+//     // Quy đổi thời gian ra định dạng cua MySQL
+//     var timeS1 = "'" + (new Date(timeS - tzoffset)).toISOString().slice(0, -1).replace("T", " ") + "'";
+//     var timeE1 = "'" + (new Date(timeE - tzoffset)).toISOString().slice(0, -1).replace("T", " ") + "'";
+//     var timeR = timeS1 + "AND" + timeE1; // Khoảng thời gian tìm kiếm (Time Range)
+//     var sqltable_Name = tableName; // Tên bảng
+//     var dt_col_Name = "_TIMESTAMP";  // Tên cột thời gian
 
-    var Query1 = "SELECT * FROM " + sqltable_Name + " WHERE " + dt_col_Name + " BETWEEN ";
-    var Query = Query1 + timeR + ";";
+//     // gán table cho Query theo dk
+//     var Query1 = "SELECT * FROM " + sqltable_Name + " WHERE " + dt_col_Name + " BETWEEN ";
+//     var Query = Query1 + timeR + ";";
 
-    sqlcon.query(Query, function (err, results, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        const objectifyRawPacket = row => ({ ...row });
-        const convertedResponse = results.map(objectifyRawPacket);
-        socket.emit('SQL_ByTime', convertedResponse);
-      }
-    });
-  });
-});
+//     sqlcon.query(Query, function (err, results, fields) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         const objectifyRawPacket = row => ({ ...row });
+//         const convertedResponse = results.map(objectifyRawPacket);
+//         socket.emit('SQL_ByTime', convertedResponse);
+//       }
+//     });
+//   });
+// });
 
-// Tìm kiếm dữ liệu SQL theo _NAME và _VALUE
-io.on("connection", function (socket) {
-  socket.on("msg_SQL_By_NAME_VALUE", async function (data) {
-    var sqltable_Name = tableName; // Tên bảng
-    var tram1 = `'TCP_IP_tram.tramChu.Tram01_CBXLDay','TCP_IP_tram.tramChu.Tram01_CBXLThu','TCP_IP_tram.tramChu.Tram01_CBHTNhaPhoi','TCP_IP_tram.tramChu.Tram01_CBHTVTHutPhoi'`
-    var tram2 = `'TCP_IP_tram.tram2.Tram02_CbXLDuoi','TCP_IP_tram.tram2.Tram02_CbXLtren','TCP_IP_tram.tram2.Tram02_XLDanPhoi','TCP_IP_tram.tram2.Tram02_XLDay'`
-    var tram3 = `'TCP_IP_tram.tramChu.tram03_KhoanDiXuong','TCP_IP_tram.tramChu.Tram03_DapPhoi','TCP_IP_tram.tramChu.Tram03_GatPhoi','TCP_IP_tram.tramChu.Tram03_KepPhoi','TCP_IP_tram.tramChu.Tram03_BanXoay'`
-    var _Group_Names = `(${tram1},${tram2},${tram3})`;  // Tên cột thời gian
-    var Query = "Select _NAME,COUNT(_NAME) From " + sqltable_Name + " Where _NAME in " + _Group_Names + "  Group by _NAME,_VALUE HAVING _VALUE  = 0; ";
-    await sqlcon.query(Query, function (err, results, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        const objectifyRawPacket = row => ({ ...row });
-        const convertedResponse = results.map(objectifyRawPacket);
-        socket.emit('SQL_By_NAME_VALUE', convertedResponse);
-      }
-    });
-  });
-});
+// // Tìm kiếm dữ liệu SQL theo _NAME và _VALUE
+// io.on("connection", function (socket) {
+//   socket.on("msg_SQL_By_NAME_VALUE", async function (data) {
+//     var sqltable_Name = tableName; // Tên bảng
+//     // var tram1 = `'TCP_IP_tram.tramChu.Tram01_CBXLDay','TCP_IP_tram.tramChu.Tram01_CBXLThu','TCP_IP_tram.tramChu.Tram01_CBHTNhaPhoi','TCP_IP_tram.tramChu.Tram01_CBHTVTHutPhoi'`
+//     // var tram2 = `'TCP_IP_tram.tram2.Tram02_CbXLDuoi','TCP_IP_tram.tram2.Tram02_CbXLtren','TCP_IP_tram.tram2.Tram02_XLDanPhoi','TCP_IP_tram.tram2.Tram02_XLDay'`
+//     // var tram3 = `'TCP_IP_tram.tramChu.tram03_KhoanDiXuong','TCP_IP_tram.tramChu.Tram03_DapPhoi','TCP_IP_tram.tramChu.Tram03_GatPhoi','TCP_IP_tram.tramChu.Tram03_KepPhoi','TCP_IP_tram.tramChu.Tram03_BanXoay'`
+//     var tram4 = `'TCP_IP_tram.tramChu.Tram04_CBHTG', 'TCP_IP_tram.tramChu.btt_Manu_Auto','TCP_IP_tram.tramChu.btt_Start'`
+//     var _Group_Names = `(${tram1},${tram2},${tram3})`;  // Tên cột thời gian
+//     var Query = "Select _NAME,COUNT(_NAME) From " + sqltable_Name + " Where _NAME in " + tram4 + "  Group by _NAME,_VALUE HAVING _VALUE  = 0; ";
+//     await sqlcon.query(Query, function (err, results, fields) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         const objectifyRawPacket = row => ({ ...row });
+//         const convertedResponse = results.map(objectifyRawPacket);  
+//         socket.emit('SQL_By_NAME_VALUE', convertedResponse);
+//       }
+//     });
+//   });
+// });
+
 
 
 

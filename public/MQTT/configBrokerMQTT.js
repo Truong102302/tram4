@@ -20,10 +20,10 @@ topicSub = "iotgateway";            // topic to subscriber to
 // Tram1_3PV4 = "Channel2.Device1.Sole_XL_day";
 // Tram1_3PV5 = "Channel2.Device1.Sole_XL_thu";
 
-Manu_Auto = "TCP_IP_tram.tramChu.btt_Manu_Auto";
-Start = "TCP_IP_tram.tramChu.btt_Start";
-Stop = "TCP_IP_tram.tramChu.btt_Stop";
-Reset = "TCP_IP_tram.tramChu.btt_Reset";
+Manu_Auto = "TCP_IP_tram.tram4.AUTO/MANUAL";
+Start = "TCP_IP_tram.tram4.START";
+Stop = "TCP_IP_tram.tram4.STOP";
+Reset = "TCP_IP_tram.tram4.RESET";
 
 Tram1_2B1 = "TCP_IP_tram.tramChu.Tram01_CBXLDay";
 Tram1_2B2 = "TCP_IP_tram.tramChu.Tram01_CBXLThu";
@@ -74,15 +74,31 @@ Tram3_5K3 = "TCP_IP_tram.tramChu.Tram03_ KhoanDiLen";
 Tram3_3M6 = "TCP_IP_tram.tramChu.Tram03_GatPhoi";
 Tram3_3B1 = "TCP_IP_tram.tramChu.Tram03_YeuCauCapPhoi";
 
-Tram4_Reset = "TCP_IP_tram.tramChu.Tram04_Reset";
-Tram4_Start = "TCP_IP_tram.tramChu.Tram04_Start";
-Tram4_2B1 = "TCP_IP_tram.tramChu.Tram04_CBPHP";
-Tram4_2B2 = "TCP_IP_tram.tramChu.Tram04_CBHTT";
-Tram4_2B3 = "TCP_IP_tram.tramChu.Tram04_CBHTG";
-Tram4_2B4 = "TCP_IP_tram.tramChu.Tram04_CBHTP";
-Tram4_2B5 = "TCP_IP_tram.tramChu.Tram04_CBXLD";
-Tram4_2B6 = "TCP_IP_tram.tramChu.Tram04_CBXLT";
-Tram4_2B7 = "TCP_IP_tram.tramChu.Tram04_CBTG";
+// Tram4_Reset = "TCP_IP_tram.tramChu.Tram04_Reset";
+// Tram4_Start = "TCP_IP_tram.tramChu.Tram04_Start";
+// Tram4_2B1 = "TCP_IP_tram.tramChu.Tram04_CBPHP";
+// Tram4_2B2 = "TCP_IP_tram.tramChu.Tram04_CBHTT";
+// Tram4_2B3 = "TCP_IP_tram.tramChu.Tram04_CBHTG";
+// Tram4_2B4 = "TCP_IP_tram.tramChu.Tram04_CBHTP";
+// Tram4_2B5 = "TCP_IP_tram.tramChu.Tram04_CBXLD";
+// Tram4_2B6 = "TCP_IP_tram.tramChu.Tram04_CBXLT";
+// Tram4_2B7 = "TCP_IP_tram.tramChu.Tram04_CBTG";
+
+
+Tram4_2B1 = "TCP_IP_tram.Tram4.2B1_CB_Phoi";
+Tram4_2B2 = "TCP_IP_tram.Tram4.2B2_CB_Gapvat";
+Tram4_2B3 = "TCP_IP_tram.Tram4.2B3_CB_Trunggian";
+Tram4_2B4 = "TCP_IP_tram.Tram4.2B4_CB_Tramsau";
+Tram4_2B5 = "TCP_IP_tram.Tram4.2B5_CB_XLD_Tren";
+Tram4_2B6 = "TCP_IP_tram.Tram4.2B6_CB_XLD_Duoi";
+Tram4_2B7 = "TCP_IP_tram.Tram4.2B7_CB_Phoi_den";
+Tram4_3PV1 = "TCP_IP_tram.Tram4.3PV1_XLN_Trai";
+Tram4_3PV2 = "TCP_IP_tram.Tram4.3PV2_XLN_Phai";
+Tram4_3PV3 = "TCP_IP_tram.Tram4.3PV3_XLD";
+Tram4_3PV4 = "TCP_IP_tram.Tram4.3PV4_Tay_gap";
+Tram4_H1 = "TCP_IP_tram.Tram4.Den_START";
+Tram4_H2 = "TCP_IP_tram.Tram4.Den_RESET";
+Tram4_Number = "TCP_IP_tram.Tram4.Number_Phoi";
 
 
 

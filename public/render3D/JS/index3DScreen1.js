@@ -75,9 +75,9 @@ async function init() {
             Tram_cap_phoi_thieu = glb.scene // gán thuộc tính cảnh của đối tượng cho biến
             Tram_cap_phoi_thieu.scale.set(1, 1, 1);
             // vị trí vật
-            Tram_cap_phoi_thieu.position.x = 0+diChuyenCaHe;
+            Tram_cap_phoi_thieu.position.x = diChuyenCaHe;
             Tram_cap_phoi_thieu.position.y = 0;
-            Tram_cap_phoi_thieu.position.z = 0+diChuyenCaHe;
+            Tram_cap_phoi_thieu.position.z = diChuyenCaHe;
             scene.add(Tram_cap_phoi_thieu); // thêm vào màn hình
             done_load_3D = true;
         }),
@@ -145,8 +145,8 @@ async function init() {
             scene.add(Phoi_cao_Mau_do_day); // thêm vào màn hình
         })
     ])
-    // const axesHelper = new THREE.AxesHelper( 5 );
-    // scene.add( axesHelper ); // thêm vào màn hình
+     const axesHelper = new THREE.AxesHelper( 5 );
+     scene.add( axesHelper ); // thêm vào màn hình
     animate();
 }
 function animate() {

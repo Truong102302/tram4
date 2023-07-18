@@ -34,6 +34,20 @@
     justify-content: space-between;
 }
 
+.Tram2_row {
+    /* width: 330px; */
+    height: 44px;
+    background-color: rgb(62, 111, 56);
+    margin: 6px;
+    border-radius: 10px;
+    padding-inline: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align:left;
+    display: flex;
+    justify-content: space-between;
+}
+
 .dot {
     height: 25px;
     width: 25px;
